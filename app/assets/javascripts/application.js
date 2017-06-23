@@ -15,3 +15,30 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+$(function () {
+    var $chk = $("#grpChkBox input:checkbox");
+    var $tbl = $("#someTable");
+
+    $chk.prop('checked', true);
+
+    $chk.click(function () {
+        var colToHide = $tbl.find("." + $(this).attr("name"));
+        $(colToHide).toggle();
+    });
+});
+
+function myFunction() {
+    var print = new Array();
+    var x = document.getElementById('print1');
+    var y = document.getElementById('print2');
+    if (x.style.display === 'block') {
+        x.style.display = 'none';
+    } else {
+        x.style.display = 'block';
+    }
+    if (y.style.display === 'none') {
+        y.style.display = 'block';
+    } else {
+        y.style.display = 'none';
+    }
+}

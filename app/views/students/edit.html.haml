@@ -1,5 +1,10 @@
-%h1 Editing Student
-= render 'form', student: @student
-= link_to 'Show', @student
-|
-= link_to 'Back', students_path
+.row
+  .col-md-6.col-md-offset-3
+    %h1 Edit Student Details
+    .col-md-6
+      = render 'form', student: @student
+      = link_to 'Show', @student
+      |
+      = link_to 'Back', students_path
+    %br
+    %br

@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+#grpChkBox {
+  p {
+    float: left;
+    padding-right: 10px;
+  }
+}
+a:link:after, a:visited:after {
+  content:" " !important;
+}
+
+#print1 {
+  display: none;
+}

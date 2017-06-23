@@ -1,33 +1,37 @@
-%p#notice= notice
-%p
-  %strong St:
-  = @student.st_id
-%p
-  %strong Name:
-  = @student.name
-%p
-  %strong Gender:
-  = @student.gender
-%p
-  %strong Program:
-  = @student.program
-%p
-  %strong Support:
-  = @student.support
-%p
-  %strong School:
-  = @student.school
-%p
-  %strong Class:
-  = grade(@student.grade)
-%p
-  %strong Dob:
-  = @student.dob
-%p
-  %strong Doj:
-  = @student.doj
-= link_to 'Edit', edit_student_path(@student)
-|
-= link_to 'Destroy', @student, method: :delete, data: { confirm: 'Are you sure?' }
-|
-= link_to 'Back', students_path
+.row
+  .col-md-6.col-md-offset-4
+    %h1 Student Deatails
+    %p#notice= notice
+    %p
+      %strong Student ID:
+      = @student.st_id
+    %p
+      %strong Name:
+      = @student.name
+    %p
+      %strong Gender:
+      = @student.gender
+    %p
+      %strong Program:
+      = @student.program
+    %p
+      %strong Support:
+      = @student.support
+    %p
+      %strong School:
+      = @student.school
+    %p
+      %strong Class:
+      = grade(@student.grade)
+    %p
+      %strong Date of Birth:
+      = @student.dob
+    %p
+      %strong Date of Joining:
+      = @student.doj
+      
+    = link_to 'Edit', edit_student_path(@student)
+    |
+    = link_to 'Destroy', @student, method: :delete, data: { confirm: 'Are you sure?' }
+    |
+    = link_to 'Back', students_path

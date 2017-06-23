@@ -8,13 +8,13 @@
         - @student.erors.full_messages.each do |msg|
           %li= msg
   .panel-body
-    = f.input :st_id, input_html: {class: 'form-control'}
+    = f.input :st_id, label: "Sudent ID", input_html: {class: 'form-control'}
     = f.input :name, input_html: {class: 'form-control'}
     = f.input :gender, input_html: {class: 'form-control'}
-    = f.input :progrm, input_html: {class: 'form-control'}
+    = f.input :program, input_html: {class: 'form-control'}
     = f.input :support, input_html: {class: 'form-control'}
     = f.input :school, input_html: {class: 'form-control'}
     = f.input :grade, input_html: {class: 'form-control'}
-    = f.input :dob, input_html: {class: 'form-control'}
-    = f.input :doj, input_html: {class: 'form-control'}
+    = f.input :dob, label: "Date Of Birth", input_html: {class: 'form-control'}
+    = f.input :doj, label: "Date Of Joining", input_html: {class: 'form-control'}
   = f.button :submit, class: "btn btn-primary"

@@ -1,29 +1,77 @@
 %p#notice= notice
-%h1 Students
-%table.table.table-condensed.table-striped.table-bordered
+%h1#print1
+  %input{:name => "header", :type => "text"}/
+
+%br
+= form_tag students_path, :method => :get, :class => 'form-search' do
+  .input
+    = select_tag(:support, options_for_select(@supports), :prompt => "Select Program", :include_blank => true, input_html: {class: 'form-control'})
+    = submit_tag "Search"
+%br
+#print2
+  #grpChkBox
+    %p
+      %input{:name => "id", :type => "checkbox"}/
+      ID
+    %p
+      %input{:name => "name", :type => "checkbox"}/
+      Name
+    %p
+      %input{:name => "gender", :type => "checkbox"}/
+      Gender
+    %p
+      %input{:name => "program", :type => "checkbox"}/
+      Program
+    %p
+      %input{:name => "support", :type => "checkbox"}/
+      Support
+    %p
+      %input{:name => "school", :type => "checkbox"}/
+      School
+    %p
+      %input{:name => "class", :type => "checkbox"}/
+      Class
+    %p
+      %input{:name => "dob", :type => "checkbox"}/
+      DoB
+    %p
+      %input{:name => "doj", :type => "checkbox"}/
+      DoJ
+    %p
+      %input{:name => "attendance", :type => "checkbox"}/
+      Attendance
+%br
+%table.table.table-striped.table-bordered#someTable
   %thead
     %tr
-      %th St
-      %th Name
-      %th Gender
-      %th Program
-      %th Support
-      %th School
-      %th Class
-      %th Dob
-      %th Doj
+      %th SNo.
+      %th.id ID
+      %th.name Name
+      %th.gender Gender
+      %th.program Program
+      %th.support Support
+      %th.school School
+      %th.class Class
+      %th.dob DoB
+      %th.doj DoJ
+      - for i in 1..31
+        %th.attendance= "#{i}"
   %tbody
     - @students.each do |student|
       %tr
-        %td= link_to student.st_id, student
-        %td= student.name
-        %td= student.gender
-        %td= student.program
-        %td= student.support
-        %td= student.school
+      %td
+        %td.id= link_to student.st_id, student
+        %td.name= student.name
+        %td.gender= student.gender
+        %td.program= student.program
+        %td.support= student.support
+        %td.school= student.school
         -@class = grade(student.grade)
-        %td= @class
-        %td= student.dob
-        %td= student.doj
-%br/
-= link_to 'New Student', new_student_path
+        %td.class= @class
+        %td.dob= student.dob
+        %td.doj= student.doj
+        - for i in 1..31
+          %td.attendance= " "
+%br
+= link_to 'Add Student', new_student_path, class: "btn btn-default"
+%button.btn.btn-default{:onclick => "myFunction()"} Print
