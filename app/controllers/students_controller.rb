@@ -6,6 +6,10 @@ class StudentsController < ApplicationController
   def index
     @students = Student.search(params[:support]).order(:grade, :name)
     @supports = Student.uniq.pluck(:support)
+    respond_to do |format|
+      format.html
+      format.xls
+    end
   end
 
   # GET /students/1
@@ -60,6 +64,11 @@ class StudentsController < ApplicationController
       format.html { redirect_to students_url, notice: 'Student was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def import
+    Student.import(params[:file])
+    redirect_to root_url, notice: "Students imported."
   end
 
   private

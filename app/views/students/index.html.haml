@@ -7,6 +7,7 @@
   = form_tag students_path, :method => :get, :class => 'form-search' do
     .input
       = select_tag(:support, options_for_select(@supports), :prompt => "Select Program", :include_blank => true, input_html: {class: 'form-control'})
+      - @var = :support
       = submit_tag "Search"
 %br
 #print3
@@ -45,7 +46,7 @@
 %table.table.table-striped.table-bordered#someTable
   %thead
     %tr
-      %th SNo.
+      %th.sno SNo.
       %th.id ID
       %th.name Name
       %th.gender Gender
@@ -58,9 +59,10 @@
       - for i in 1..31
         %th.attendance= "#{i}"
   %tbody
+    - j=1
     - @students.each do |student|
       %tr
-      %td
+        %td.sno= j
         %td.id= link_to student.st_id, student
         %td.name= student.name
         %td.gender= student.gender
@@ -73,6 +75,18 @@
         %td.doj= student.doj
         - for i in 1..31
           %td.attendance= " "
+        -j = j+1
 #print4
   = link_to 'Add Student', new_student_path, class: "btn btn-default"
-%button.btn.btn-default{:onclick => "myFunction()"} Print
+%button.btn.btn-default{:onclick => "myFunction()"}
+  %small Print
+#print5
+  %p
+    Download:
+    = link_to "Excel", students_path(format: "xls"), :support => :support
+#print6
+  %p
+    Import Data:
+    = form_tag import_students_path, multipart: true do
+      = file_field_tag :file
+      = submit_tag "Import"

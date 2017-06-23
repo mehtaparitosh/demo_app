@@ -33,6 +33,9 @@ function myFunction() {
     var y = document.getElementById('print3');
     var a = document.getElementById('print2');
     var b = document.getElementById('print4');
+    var c = document.getElementById('print5');
+    var d = document.getElementById('print6');
+
 
     if (x.style.display === 'block') {
         x.style.display = 'none';
@@ -48,9 +51,20 @@ function myFunction() {
         a.style.display = 'block';
     } else {
         a.style.display = 'none';
-    }if (b.style.display === 'none') {
+    }
+    if (b.style.display === 'none') {
       b.style.display = 'block';
     } else {
         b.style.display = 'none';
+    }
+    if (c.style.display === 'none') {
+      c.style.display = 'block';
+    } else {
+        c.style.display = 'none';
+    }
+    if (d.style.display === 'none') {
+      d.style.display = 'block';
+    } else {
+        d.style.display = 'none';
     }
 }
