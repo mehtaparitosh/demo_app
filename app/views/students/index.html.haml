@@ -2,13 +2,14 @@
 %h1#print1
   %input{:name => "header", :type => "text"}/
 
-%br
-= form_tag students_path, :method => :get, :class => 'form-search' do
-  .input
-    = select_tag(:support, options_for_select(@supports), :prompt => "Select Program", :include_blank => true, input_html: {class: 'form-control'})
-    = submit_tag "Search"
-%br
 #print2
+  %br
+  = form_tag students_path, :method => :get, :class => 'form-search' do
+    .input
+      = select_tag(:support, options_for_select(@supports), :prompt => "Select Program", :include_blank => true, input_html: {class: 'form-control'})
+      = submit_tag "Search"
+%br
+#print3
   #grpChkBox
     %p
       %input{:name => "id", :type => "checkbox"}/
@@ -72,6 +73,6 @@
         %td.doj= student.doj
         - for i in 1..31
           %td.attendance= " "
-%br
-= link_to 'Add Student', new_student_path, class: "btn btn-default"
+#print4
+  = link_to 'Add Student', new_student_path, class: "btn btn-default"
 %button.btn.btn-default{:onclick => "myFunction()"} Print

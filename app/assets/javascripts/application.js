@@ -28,9 +28,12 @@ $(function () {
 });
 
 function myFunction() {
-    var print = new Array();
+    var arr = new Array();
     var x = document.getElementById('print1');
-    var y = document.getElementById('print2');
+    var y = document.getElementById('print3');
+    var a = document.getElementById('print2');
+    var b = document.getElementById('print4');
+
     if (x.style.display === 'block') {
         x.style.display = 'none';
     } else {
@@ -40,5 +43,14 @@ function myFunction() {
         y.style.display = 'block';
     } else {
         y.style.display = 'none';
+    }
+    if (a.style.display === 'none') {
+        a.style.display = 'block';
+    } else {
+        a.style.display = 'none';
+    }if (b.style.display === 'none') {
+      b.style.display = 'block';
+    } else {
+        b.style.display = 'none';
     }
 }
