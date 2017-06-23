@@ -18,11 +18,16 @@
   %strong School:
   = @student.school
 %p
+  %strong Class:
+  = grade(@student.grade)
+%p
   %strong Dob:
   = @student.dob
 %p
   %strong Doj:
   = @student.doj
 = link_to 'Edit', edit_student_path(@student)
+|
+= link_to 'Destroy', @student, method: :delete, data: { confirm: 'Are you sure?' }
 |
 = link_to 'Back', students_path

@@ -1,35 +1,20 @@
-= form_for(student) do |f|
-  - if student.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(student.errors.count, "error")
-        prohibited this student from being saved:
+= simple_form_for @student, html: { class: 'form-horizontal' } do |f|
+  - if @student.errors.any?
+    #errors
+      %p
+        = @student.errors.count
+        Prevented this recipe from Saving
       %ul
-        - student.errors.full_messages.each do |message|
-          %li= message
-  .field
-    = f.label :st_id
-    = f.text_field :st_id
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :gender
-    = f.text_field :gender
-  .field
-    = f.label :program
-    = f.text_field :program
-  .field
-    = f.label :support
-    = f.text_field :support
-  .field
-    = f.label :school
-    = f.text_field :school
-  .field
-    = f.label :dob
-    = f.date_select :dob
-  .field
-    = f.label :doj
-    = f.date_select :doj
-  .actions
-    = f.submit
+        - @student.erors.full_messages.each do |msg|
+          %li= msg
+  .panel-body
+    = f.input :st_id, input_html: {class: 'form-control'}
+    = f.input :name, input_html: {class: 'form-control'}
+    = f.input :gender, input_html: {class: 'form-control'}
+    = f.input :progrm, input_html: {class: 'form-control'}
+    = f.input :support, input_html: {class: 'form-control'}
+    = f.input :school, input_html: {class: 'form-control'}
+    = f.input :grade, input_html: {class: 'form-control'}
+    = f.input :dob, input_html: {class: 'form-control'}
+    = f.input :doj, input_html: {class: 'form-control'}
+  = f.button :submit, class: "btn btn-primary"
